@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>String and Math Functions in JavaScript</title>
+</head>
+<body>
+  <h2>JavaScript String and Math Functions</h2>
+
+  <h3>String Functions</h3>
+  <script>
+    let str = "  Hello JavaScript!  ";
+    document.write("Original: '" + str + "'<br>");
+    document.write("Length: " + str.length + "<br>");
+    document.write("Uppercase: " + str.toUpperCase() + "<br>");
+    document.write("Lowercase: " + str.toLowerCase() + "<br>");
+    document.write("Char at 2: " + str.charAt(2) + "<br>");
+    document.write("Index of 'Script': " + str.indexOf("Script") + "<br>");
+    document.write("Slice (2, 9): " + str.slice(2, 9) + "<br>");
+    document.write("Replace 'Hello' with 'Hi': " + str.replace("Hello", "Hi") + "<br>");
+    document.write("Split by space: " + str.split(" ") + "<br>");
+    document.write("Trimmed: '" + str.trim() + "'<br><br>");
+  </script>
+
+  <h3>Math Functions</h3>
+  <script>
+    let n = 7.56;
+    document.write("Number: " + n + "<br>");
+    document.write("Round: " + Math.round(n) + "<br>");
+    document.write("Floor: " + Math.floor(n) + "<br>");
+    document.write("Ceil: " + Math.ceil(n) + "<br>");
+    document.write("2^4: " + Math.pow(2,4) + "<br>");
+    document.write("√81: " + Math.sqrt(81) + "<br>");
+    document.write("Random: " + Math.random() + "<br>");
+    document.write("Max(5,10,20): " + Math.max(5,10,20) + "<br>");
+    document.write("Min(5,10,20): " + Math.min(5,10,20) + "<br>");
+    document.write("Abs(-25): " + Math.abs(-25) + "<br>");
+  </script>
+
+</body>
+</html>

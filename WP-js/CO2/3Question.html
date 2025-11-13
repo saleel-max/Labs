@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form with Validation</title>
+  <style>
+    body {
+      font-family: Arial;
+      margin: 40px;
+    }
+    form {
+      width: 300px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 6px;
+      margin-top: 4px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 8px 16px;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Registration Form</h2>
+
+  <form id="regForm" onsubmit="return validateForm()">
+    <label>Full Name:</label>
+    <input type="text" id="name" placeholder="Enter your name">
+
+    <label>Email:</label>
+    <input type="text" id="email" placeholder="Enter your email">
+
+    <label>Password:</label>
+    <input type="password" id="password" placeholder="Enter password">
+
+    <label>Confirm Password:</label>
+    <input type="password" id="confirmPassword" placeholder="Re-enter password">
+
+    <label>Mobile Number:</label>
+    <input type="text" id="mobile" placeholder="Enter 10-digit number">
+
+    <button type="submit">Register</button>
+  </form>
+
+  <script>
+    function validateForm() {
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let password = document.getElementById("password").value;
+      let confirmPassword = document.getElementById("confirmPassword").value;
+      let mobile = document.getElementById("mobile").value.trim();
+
+      // Name validation
+      if (name === "") {
+        alert("Please enter your name.");
+        return false;
+      }
+
+      // Email validation
+      let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!email.match(emailPattern)) {
+        alert("Please enter a valid email address.");
+        return false;
+      }
+
+      // Password validation
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return false;
+      }
+
+      // Confirm password
+      if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return false;
+      }
+
+      // Mobile validation
+      let mobilePattern = /^[0-9]{10}$/;
+      if (!mobile.match(mobilePattern)) {
+        alert("Please enter a valid 10-digit mobile number.");
+        return false;
+      }
+
+      alert("Registration successful!");
+      return true;
+    }
+  </script>
+
+</body>
+</html>

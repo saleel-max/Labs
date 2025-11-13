@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calendar Generator</title>
+</head>
+<body>
+  <h2>JavaScript Calendar Generator</h2>
+<link rel="stylesheet" href="./ce">
+  <label>Enter Year: </label>
+  <input type="number" id="yearInput" placeholder="e.g. 2025">
+  <button onclick="generateCalendar()">Generate Calendar</button>
+
+  <div id="calendar"></div>
+
+  <script>
+    function generateCalendar() {
+      let year = document.getElementById("yearInput").value;
+      let calendarDiv = document.getElementById("calendar");
+      calendarDiv.innerHTML = ""; 
+
+      if (!year) {
+        calendarDiv.innerHTML = "<p>Please enter a valid year.</p>";
+        return;
+      }
+
+      const months = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
+
+      for (let m = 0; m < 12; m++) {
+        // Create month heading
+        let monthTable = "<h3>" + months[m] + " " + year + "</h3>";
+        monthTable += "<table border='1' cellpadding='4' cellspacing='0'>";
+        monthTable += "<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>";
+
+        let firstDay = new Date(year, m, 1).getDay();
+        let daysInMonth = new Date(year, m + 1, 0).getDate();
+
+        monthTable += "<tr>";
+        // Blank cells before first day
+        for (let i = 0; i < firstDay; i++) {
+          monthTable += "<td></td>";
+        }
+
+        // Fill dates
+        for (let day = 1; day <= daysInMonth; day++) {
+          if ((firstDay + day - 1) % 7 === 0 && day !== 1) {
+            monthTable += "</tr><tr>";
+          }
+          monthTable += "<td>" + day + "</td>";
+        }
+
+        monthTable += "</tr></table><br>";
+        calendarDiv.innerHTML += monthTable;
+      }
+    }
+  </script>
+</body>
+</html>
