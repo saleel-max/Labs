@@ -1,0 +1,2 @@
+Python is a powerful programming language.
+Reading files line by line is a common task.
